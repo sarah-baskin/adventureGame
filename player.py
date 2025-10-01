@@ -1,5 +1,8 @@
 import sys
 from weapon import Weapon
+from skills import Skill
+from alignment import Alignment
+from room import Room
 
 '''
 This class will contain all of the information necessary for creating a player in the game
@@ -7,29 +10,31 @@ This class will contain all of the information necessary for creating a player i
 
 class Player:
 
-    name = "Player 1"
+    name = "Jane Doe"
     skills = []
     weapons = []
     currWeapon = None
-    personality = "True Neutral"
-    position = "Game Start"
+    alignment = None
+    position = None
     
 
     def __init__(self):
         pass
+
     
-    def __init__(self, name : str, skills : list, weapons : list, personality : str):
+    def __init__(self, name : str, skills : list, weapons : list, alignment : Alignment, position : Room):
         self.name = name
         self.skills = skills
         self.weapons = weapons
-        self.personality = personality
+        self.personality = alignment
+        self.position = position
 
-    def sayName():
+    def getName():
         return Player.name
     
     def showWeapons():
         if len(Player.weapons) == 0:
-            print("You are defenseless.")
+            print("You are defenseless. Use your fists.")
         elif len(Player.weapons) == 1 and Player.weapons[0] == Player.currWeapon:
             print("You are already armed with your only weapon")
         else:
@@ -40,7 +45,7 @@ class Player:
     
     def pickWeapon():
         if len(Player.weapons) == 0:
-            print("You are defenseless.")
+            print("You are defenseless. Use your fists.")
         elif len(Player.weapons) == 1 and Player.weapons[0] == Player.currWeapon:
             print("You are already armed with your only weapon")
         else:
@@ -55,8 +60,19 @@ class Player:
                     print("The weapon that you desire is not in your arsenal.")
                     Player.showWeapons()
     
-    def addWeapon(weapon : Weapon):
+    def addWeaponToWeapons(weapon : Weapon):
         Player.weapons.add(weapon)
+
+    def showSkills():
+        if len(Player.skills) == 0:
+            print("You have yet to collect your first skill.")
+        else:
+            print("Here are your skills: ")
+            for skill in Player.skills:
+                print(skill.getName())
+
+    def addSkillToSkills(skill : Skill):
+        Player.skills.add(skill)
                 
 
     
