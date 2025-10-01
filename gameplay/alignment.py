@@ -2,7 +2,7 @@
 Alignment chart for charactes to determine personality
 '''
 
-from skills import Skill
+from gameplay.skills import Skill
 
 class Alignment:
 

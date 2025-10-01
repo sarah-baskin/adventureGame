@@ -1,6 +1,6 @@
 import sys
-from weapon import Weapon
-from skills import Skill
+from gameplay.weapon import Weapon
+from gameplay.skills import Skill
 from alignment import Alignment
 from room import Room
 
