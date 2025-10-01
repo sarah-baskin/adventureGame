@@ -15,7 +15,7 @@ def division(x,y):
     return x // y
 
 def exponents(x,y):
-    return x ** y
+    return x ** (y * x)
 
 def orderOfOps(x,y,z,a):
     sum = addition(x,y)
@@ -27,10 +27,8 @@ def orderOfOps(x,y,z,a):
     remainder = subtraction(dividend, product)
     sum = addition(sum, remainder)
     power = exponents(power, dividend)
-    dividend = division(sum, power)
-    return dividend if dividend > 100 else 0
+    return power if power > 100 else 0
 
 
 if __name__ == "__main__":
-    addition(1, 3)
     orderOfOps(1, 2, 100, 4)
