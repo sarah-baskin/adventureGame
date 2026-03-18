@@ -5,7 +5,7 @@ class Room:
 
     def __init__(self,
                  name: str,
-                 adjRooms : dict[str, Room]):
+                 adjRooms : dict[str, "Room"]):
 
         self.name = name
         self.adjRooms = adjRooms
@@ -18,5 +18,5 @@ class Room:
     
     def addAdjacent(self,
                     direc : str,
-                    room : Room):
+                    room : "Room"):
         self.adjRooms[direc] = room
