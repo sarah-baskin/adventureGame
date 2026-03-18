@@ -4,12 +4,12 @@ This class dictates the characteristics of weapons
 
 class Weapon:
 
-    name = ""
-    power = 0
-    defense = 0
-    sorcery = 0
-
-    def __init__(self, name, power, defense, sorcery):
+    def __init__(self, 
+                 name : str, 
+                 power : int, 
+                 defense : int, 
+                 sorcery: bool):
+        
         self.name = name
         self.power = power
         self.defense = defense
@@ -29,4 +29,4 @@ class Weapon:
         return Weapon.sorcery
     
     def isMagic():
-        return True if Weapon.sorcery > 0 else False
+        return True if Weapon.getSorcery() else False
