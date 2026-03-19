@@ -35,23 +35,6 @@ class Hand:
                           obj : Item) -> None:
         self.right_hand.remove(obj)
 
-class Satchel:
-    '''
-    Defines the workings of the satchel
-    '''
-    def __init__(self,
-                 contains : list[Item]
-                 ):
-        self.contains = contains
-    def get_holding(self) -> list[Item]:
-        return self.contains
-    def add_to_holding(self,
-                       obj : Item) -> None:
-        self.contains.append(obj)
-    def remove_from_holding(self,
-                            obj: Item) -> None:
-        self.contains.remove(obj)
-
 class Player:
     '''
     Defines player actions and abilities
