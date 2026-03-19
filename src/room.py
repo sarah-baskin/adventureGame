@@ -1,7 +1,7 @@
 '''
 This houses the skill class and its related stuff
 '''
-from src.item import Item
+from item import Item
 
 class Room:
     '''

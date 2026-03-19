@@ -5,7 +5,9 @@ Great question! It is an old-style choose your own adventure keyboard game.
 
 ## TODOS
 
-1. Start coding gameplay itself
+1. Refactor tests
+2. do type checking and linting for the new game code
+3. finetune how you want the game logic to work for now
 
 
 How does the game actually work?

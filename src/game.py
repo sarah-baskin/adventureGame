@@ -21,22 +21,30 @@ class Game:
         left_rooms = self.player.get_location().get_left()
         right_rooms = self.player.get_location().get_right()
         objects = self.player.get_location().get_objects()
-
         options = []
+        print("Possible actions: ")
         if left_rooms > 0:
             options.append("go left")
-            print(f"You have {left_rooms} rooms to explore to your left")
+            print("- Explore the room to your left")
         if right_rooms > 0:
             options.append("go right")
-            print(f"You have {right_rooms} rooms to explore to your right")
+            print("- Explore the room to your right")
         if len(objects) > 0:
             options.append("stay here")
-            print(f"There are {len(objects)} objects to explore in this room")
+            print("- Check out what there is to see here.")
+        
         if len(options) == 0:
             print("You are lost forever. Game over.")
-        decision = input(f"What do you want to do? You can {", ".join(options)}")
-        while not self.verify_decision(decision, options):
-            decision = input(f"What do you want to do? You can {", ".join(options)}")
+            decision = None
+        elif len(options) == 1:
+            print(f"Your only option is to {options[0]}. Let's do that.")
+            decision = options[0]
+        elif len(options) > 1:
+            print(f"What do you want to do? Your options are: {", ".join(options)}")
+            decision = input("Pick an action from the choices above: ")
+            while not self.verify_decision(decision, options):
+                decision = input(f"What do you want to do? You can {", ".join(options)}")
+        
         return decision
     
     def verify_decision(self, decision, options):

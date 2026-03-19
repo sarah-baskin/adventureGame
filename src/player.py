@@ -6,8 +6,8 @@ This houses the skill class and its related stuff
 # have a personality type -- which comes with built in skills and weapons associated with it
 # have a satchel -- NEW CLASS NEEDED FOR THIS
 
-from src.room import Room
-from src.item import Item
+from room import Room
+from item import Item, Satchel
 
 class Hand:
     '''
