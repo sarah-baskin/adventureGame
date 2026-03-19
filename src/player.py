@@ -1,3 +1,7 @@
+'''
+This houses the skill class and its related stuff
+'''
+
 # things the player should be able to do:
 # have a personality type -- which comes with built in skills and weapons associated with it
 # have a satchel -- NEW CLASS NEEDED FOR THIS
@@ -12,31 +16,46 @@ class Player:
     def __init__(self,
                  name : str,
                  location : Room,
-                 health : int, 
-                 gender : str = None):
-        
+                 health : int,
+                 gender : str = ""):
         self.name = name
         self.location = location
         self.health = health
         self.gender = gender
-    
-    def getName(self):
+    def get_name(self) -> str :
+        '''
+        Returns the name of a player
+        '''
         return self.name
-    
-    def getLocation(self):
+    def get_location(self) -> Room :
+        '''
+        Returns the current location of a player
+        '''
         return self.location
-    
-    def getHealth(self):
+    def get_health(self) -> int :
+        '''
+        Returns the health level of a player
+        An int between 0 -20
+        When health is at 0, the player is dead
+        '''
         return self.health
-    
-    def loseHealth(self, num):
+    def lose_health(self, num) -> None :
+        '''
+        The player loses health
+        '''
         self.health -= num
-    
-    def gainHealth(self, num):
+    def gain_health(self, num) -> None :
+        '''
+        The player gains health
+        '''
         self.health += num
-
-    def updateLoc(self, loc):
+    def update_loc(self, loc) -> None :
+        '''
+        Updates the player's current location
+        '''
         self.location = loc
-    
-    def getGender(self):
+    def get_gender(self) -> str :
+        '''
+        Returns the player's gender
+        '''
         return self.gender

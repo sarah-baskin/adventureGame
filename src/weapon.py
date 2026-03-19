@@ -1,3 +1,7 @@
+'''
+This houses the skill class and its related stuff
+'''
+
 class Weapon:
     '''
     This class dictates the characteristics of weapons
@@ -6,33 +10,36 @@ class Weapon:
     Defense can be zero, max can be 10
     '''
 
-    def __init__(self, 
+    def __init__(self,
                  name : str,
-                 power : int, 
-                 defense : int, 
-                 sorcery: bool,
-                 label : str = None):
-        
+                 power : int,
+                 defense : int,
+                 sorcery: bool
+                 ):
         self.name = name
         self.power = power
         self.defense = defense
         self.sorcery = sorcery
-        self.label = label
 
-    def getName(self) -> str :
+    def get_name(self) -> str :
+        '''
+        Returns the weapon's name
+        '''
         return self.name
-    
-    def getPower(self) -> int :
+    def get_power(self) -> int :
+        '''
+        Returns the power ability of the weapon
+        An int 0-5
+        '''
         return self.power
-    
-    def getDefense(self) -> int :
+    def get_defense(self) -> int :
+        '''
+        Returns the defensive ability of the weapon
+        An int 0-5
+        '''
         return self.defense
-    
-    def getSorcery(self) -> bool :
+    def get_sorcery(self) -> bool :
+        '''
+        Returns whether the weapon is imbued with magic
+        '''
         return self.sorcery
-    
-    def isMagic(self) -> bool:
-        return True if self.getSorcery() else False
-
-    def getLabel(self) -> str:
-        return self.label

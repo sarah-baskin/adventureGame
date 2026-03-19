@@ -1,3 +1,7 @@
+'''
+This houses the skill class and its related stuff
+'''
+
 class Room:
     '''
     This class handles the creation of rooms (locations). The places the player can visit
@@ -5,21 +9,27 @@ class Room:
 
     def __init__(self,
                  name: str,
-                 adjRooms : dict[str, list["Room"]]):
-
+                 adj_rooms : dict[str, list["Room"]]):
         self.name = name
-        self.adjRooms = adjRooms
-    
-    def getName(self):
+        self.adj_rooms = adj_rooms
+    def get_name(self) -> str :
+        '''
+        Returns the room's name
+        '''
         return self.name
-    
-    def getAdjacent(self):
-        return self.adjRooms
-    
-    def addAdjacent(self,
+    def get_adjacent(self) -> dict[str, list["Room"]] :
+        '''
+        Returns the dictionary of adjacent rooms associated with this room
+        '''
+        return self.adj_rooms
+    def add_adjacent(self,
                     direc : str,
                     room : "Room"):
-        if direc not in self.adjRooms:
-            self.adjRooms[direc] = [room]
+        '''
+        Adds a room to the adjacent room list
+        '''
+
+        if direc not in self.adj_rooms:
+            self.adj_rooms[direc] = [room]
         else:
-            self.adjRooms[direc].append(room)
+            self.adj_rooms[direc].append(room)
