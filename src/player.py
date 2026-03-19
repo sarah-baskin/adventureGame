@@ -7,6 +7,50 @@ This houses the skill class and its related stuff
 # have a satchel -- NEW CLASS NEEDED FOR THIS
 
 from src.room import Room
+from src.item import Item
+
+class Hand:
+    '''
+    Defines evrything held in a player's hand at any given time
+    '''
+    def __init__(self,
+                 left_hand : list[Item],
+                 right_hand : list[Item]):
+        self.left_hand = left_hand
+        self.right_hand = right_hand
+    def get_left_hand(self) -> list[Item]:
+        return self.left_hand
+    def get_right_hand(self) -> list[Item]:
+        return self.right_hand
+    def add_to_left_hand(self,
+                         obj : Item) -> None:
+        self.left_hand.append(obj)
+    def add_to_right_hand(self,
+                          obj : Item) -> None:
+        self.right_hand.append(obj)
+    def del_from_left_hand(self,
+                         obj : Item) -> None:
+        self.left_hand.remove(obj)
+    def del_from_right_hand(self,
+                          obj : Item) -> None:
+        self.right_hand.remove(obj)
+
+class Satchel:
+    '''
+    Defines the workings of the satchel
+    '''
+    def __init__(self,
+                 contains : list[Item]
+                 ):
+        self.contains = contains
+    def get_holding(self) -> list[Item]:
+        return self.contains
+    def add_to_holding(self,
+                       obj : Item) -> None:
+        self.contains.append(obj)
+    def remove_from_holding(self,
+                            obj: Item) -> None:
+        self.contains.remove(obj)
 
 class Player:
     '''
@@ -17,11 +61,13 @@ class Player:
                  name : str,
                  location : Room,
                  health : int,
-                 gender : str = ""):
+                 hand : Hand,
+                 satchel : Satchel):
         self.name = name
         self.location = location
         self.health = health
-        self.gender = gender
+        self.hand = hand
+        self.satchel = satchel
     def get_name(self) -> str :
         '''
         Returns the name of a player
@@ -54,8 +100,4 @@ class Player:
         Updates the player's current location
         '''
         self.location = loc
-    def get_gender(self) -> str :
-        '''
-        Returns the player's gender
-        '''
-        return self.gender
+    

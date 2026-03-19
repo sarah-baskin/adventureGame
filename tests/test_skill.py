@@ -8,8 +8,8 @@ class TestSkills(unittest.TestCase):
                           "ability to cast spells",
                           2,
                           0)
-        self.assertEqual("magic", magic.getName())
-        self.assertEqual("ability to cast spells", magic.getDescription())
+        self.assertEqual("magic", magic.get_name())
+        self.assertEqual("ability to cast spells", magic.get_description())
     
     def test_without_name(self):
         no_name = Skill("", 
@@ -17,7 +17,7 @@ class TestSkills(unittest.TestCase):
                           2,
                           0)
         with self.assertRaises(ValueError):
-            no_name.getName()
+            no_name.get_name()
     
     def test_without_description(self):
         no_desc = Skill("communication", 
@@ -25,4 +25,4 @@ class TestSkills(unittest.TestCase):
                           3,
                           0)
         with self.assertRaises(ValueError):
-            no_desc.getDescription()
+            no_desc.get_description()
