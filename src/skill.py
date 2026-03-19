@@ -1,6 +1,9 @@
 class Skill:
     '''
     This class handles the creation of player skills
+
+    Advtange is a number between 1 and 5
+    Disadvantage is a number between 1 and 5
     '''
 
     def __init__(self, 

@@ -2,7 +2,8 @@ class Weapon:
     '''
     This class dictates the characteristics of weapons
 
-    Power can be zero
+    Power can be zero, max can be 10
+    Defense can be zero, max can be 10
     '''
 
     def __init__(self, 
@@ -10,7 +11,7 @@ class Weapon:
                  power : int, 
                  defense : int, 
                  sorcery: bool,
-                 label : str = ""):
+                 label : str = None):
         
         self.name = name
         self.power = power
